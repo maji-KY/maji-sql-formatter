@@ -1,73 +1,38 @@
 {
-  "name": "sql-formatter",
-  "version": "2.3.2",
-  "description": "Formats whitespaces in a SQL query to make it more readable",
+  "name": "maji-sql-formatter",
+  "version": "1.0.0",
+  "description": "SQL Formatter",
   "license": "MIT",
-  "main": "lib/sqlFormatter.js",
-  "keywords": [
-    "sql",
-    "formatter",
-    "format",
-    "n1ql",
-    "whitespaces"
-  ],
-  "authors": [
-    "Rene Saarsoo",
-    "Uku Pattak"
-  ],
-  "files": [
-    "dist",
-    "lib",
-    "src"
-  ],
+  "main": "dist/bundle.js",
   "scripts": {
-    "clean": "rimraf lib dist",
-    "lint": "eslint .",
-    "test": "jest",
-    "test:watch": "npm run test -- --watch",
-    "check": "npm run lint && npm run test",
-    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
-    "build:commonjs": "babel src --out-dir lib",
-    "build:umd": "cross-env NODE_ENV=development webpack src/sqlFormatter.js dist/sql-formatter.js",
-    "build:umd:min": "cross-env NODE_ENV=production webpack src/sqlFormatter.js dist/sql-formatter.min.js",
-    "prepublish": "npm run clean && npm run check && npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zeroturnaround/sql-formatter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zeroturnaround/sql-formatter/issues"
+    "dev": "NODE_ENV=development webpack --watch",
+    "lint": "eslint --ext .js,.ts,.tsx src/main webpack.config.js karma.conf.js",
+    "test": "NODE_ENV=development karma start karma.conf.js",
+    "test-watch": "karma start karma.conf.js --no-single-run",
+    "build-dev": "NODE_ENV=development webpack",
+    "build": "NODE_ENV=production webpack"
   },
   "dependencies": {
     "lodash": "^4.16.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-core": "^6.11.4",
-    "babel-eslint": "^7.1.0",
-    "babel-jest": "^17.0.2",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-class-properties": "^6.11.5",
-    "babel-plugin-transform-es3-member-expression-literals": "^6.5.0",
-    "babel-plugin-transform-es3-property-literals": "^6.5.0",
-    "babel-plugin-transform-function-bind": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.14.0",
-    "cross-env": "^3.1.3",
-    "eslint": "^3.7.1",
-    "eslint-config-zt": "^1.3.0",
-    "eslint-plugin-react": "^7.6.1",
-    "jest": "^17.0.2",
-    "rimraf": "^2.3.4",
-    "webpack": "^1.13.1"
-  },
-  "jest": {
-    "testPathDirs": [
-      "test"
-    ],
-    "testRegex": ".*Test",
-    "collectCoverage": true
+    "@types/hubot": "^2.19.3",
+    "@types/jasmine": "^3.3.5",
+    "@types/node": "^10.12.26",
+    "@typescript-eslint/parser": "^1.4.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "eslint": "^5.11.0",
+    "jasmine-core": "^3.3.0",
+    "karma": "^3.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-webpack": "^3.0.5",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.3.3",
+    "uglifyjs-webpack-plugin": "^2.1.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

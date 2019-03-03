@@ -1,4 +1,4 @@
-import sqlFormatter from "./../src/sqlFormatter";
+import sqlFormatter from "./../main/sqlFormatter";
 
 /**
  * Core tests for all SQL formatters
@@ -457,7 +457,7 @@ export default function behavesLikeSqlFormatter(language) {
             "  count(*),\n" +
             "  Column1\n" +
             "FROM\n" +
-            "  Table1;\n" + 
+            "  Table1;\n" +
             "SELECT\n" +
             "  count(*),\n" +
             "  Column1\n" +
